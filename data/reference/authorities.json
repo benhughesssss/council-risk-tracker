@@ -1,0 +1,12 @@
+{
+  "_comment": "Scope v1: Greater Manchester (10 metropolitan boroughs, unitary) + Gloucestershire (two-tier: 1 county + 6 districts). Two-tier vs unitary is a real structural difference to call out in analysis, not paper over — GM boroughs run social care/highways themselves, Gloucestershire districts don't.",
+  "greater_manchester": [
+    "Bolton", "Bury MBC", "Manchester", "Oldham", "Rochdale",
+    "Salford", "Stockport MBC", "Tameside", "Trafford", "Wigan MBC"
+  ],
+  "gloucestershire": {
+    "county": ["Gloucestershire CC"],
+    "districts": ["Cheltenham", "Cotswold", "Forest of Dean", "Gloucester", "Stroud", "Tewkesbury"]
+  },
+  "_note_on_names": "Names above are the exact strings as they appear in the MHCLG RS_LA_Data ODS 'Local authority' column, confirmed by direct inspection of data/raw/RS_2024-25.ods on 2026-08-07. Match on these exactly when parsing."
+}

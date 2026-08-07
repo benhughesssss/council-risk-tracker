@@ -1,0 +1,69 @@
+name: Build and deploy site
+
+# Re-runs the pipeline against MHCLG's data and redeploys the static
+# site — nothing about the fetched/processed data is committed to the
+# repo (see .gitignore); it's regenerated fresh on every run and
+# published straight to Pages as a build artifact.
+#
+# NOTE: pipeline/fetch_data.py's DATA_URL is a content-hashed MHCLG
+# asset link that doesn't change automatically when they publish a new
+# year's outturn — someone has to bump it by hand (see README "Known
+# limitations"). The monthly schedule here re-fetches the SAME file
+# until that happens; it's mainly useful for catching MHCLG revising
+# the file in place, and for redeploying automatically when reference
+# data (data/reference/*.json) is edited and pushed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/**"
+      - "data/reference/**"
+      - "site/**"
+      - "requirements.txt"
+      - ".github/workflows/deploy.yml"
+  schedule:
+    - cron: "0 6 1 * *"  # 06:00 UTC on the 1st of each month
+  workflow_dispatch: {}   # manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch latest MHCLG data
+        run: python3 pipeline/fetch_data.py
+
+      - name: Run pipeline
+        run: |
+          LATEST_CSV=$(ls -t data/raw/Revenue_Outturn_time_series_*.csv | head -1)
+          python3 pipeline/parse_rs_data.py "$LATEST_CSV"
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,43 @@
+{
+  "_comment": "Exceptional Financial Support (capitalisation directions) 2025-26, from https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2025-26 — cross-check figures against the primary gov.uk table/PDFs before publishing, this was extracted via automated page-fetch, not hand-verified line by line yet.",
+  "_relevance_note": "Trafford (Greater Manchester) is on this list — the only GM or Gloucestershire authority present. That's the headline candidate finding for v1: is Trafford's reserves trajectory showing this coming before the EFS award, and how does it compare to the other 9 GM boroughs and 7 Gloucestershire authorities who aren't on this list?",
+  "year": "2025-26",
+  "source_url": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2025-26",
+  "awards": [
+    {"authority": "Barnet", "amount_gbp_m": 55.7},
+    {"authority": "Birmingham", "amount_gbp_m": 180.0, "prior_year_revised_gbp_m": 490.0},
+    {"authority": "Bradford", "amount_gbp_m": 127.1},
+    {"authority": "Cheshire East", "amount_gbp_m": 25.3, "prior_year_revised_gbp_m": 17.6},
+    {"authority": "Croydon", "amount_gbp_m": 110.3, "note": "revised, includes prior year adjustments"},
+    {"authority": "Cumberland", "amount_gbp_m": 23.439},
+    {"authority": "Eastbourne", "amount_gbp_m": 2.0},
+    {"authority": "Enfield", "amount_gbp_m": 10.0, "prior_year_gbp_m": 20.0},
+    {"authority": "Halton", "amount_gbp_m": 32.0, "prior_year_gbp_m": 10.0},
+    {"authority": "Haringey", "amount_gbp_m": 37.0, "prior_year_gbp_m": 10.0},
+    {"authority": "Havering", "amount_gbp_m": 88.0},
+    {"authority": "Medway", "amount_gbp_m": 28.469, "note": "revised"},
+    {"authority": "Newham", "amount_gbp_m": 51.2, "prior_year_gbp_m": 15.969},
+    {"authority": "Nottingham", "amount_gbp_m": 25.0},
+    {"authority": "Shropshire", "amount_gbp_m": 26.9, "note": "2024-25"},
+    {"authority": "Slough", "amount_gbp_m": 15.709},
+    {"authority": "Solihull", "amount_gbp_m": 32.658, "prior_year_gbp_m": 15.615},
+    {"authority": "Somerset", "amount_gbp_m": 45.118, "note": "revised"},
+    {"authority": "Southampton", "amount_gbp_m": 89.9},
+    {"authority": "Stoke-on-Trent", "amount_gbp_m": 16.8},
+    {"authority": "Swindon", "amount_gbp_m": 14.7},
+    {"authority": "Thurrock", "amount_gbp_m": 62.11, "note": "revised"},
+    {"authority": "Trafford", "amount_gbp_m": 9.6, "note": "Greater Manchester — in v1 scope"},
+    {"authority": "West Berkshire", "amount_gbp_m": 20.0, "prior_year_gbp_m": 13.0},
+    {"authority": "Windsor & Maidenhead", "amount_gbp_m": 41.0, "prior_year_gbp_m": 62.0},
+    {"authority": "Wirral", "amount_gbp_m": 7.5, "prior_year_gbp_m": 18.641},
+    {"authority": "Woking", "amount_gbp_m": 74.6, "prior_year_revised_gbp_m": 93.6},
+    {"authority": "Worcestershire", "amount_gbp_m": 33.6},
+    {"authority": "Worthing", "amount_gbp_m": 4.75, "note": "revised"}
+  ],
+  "hra_support": [
+    {"authority": "Lambeth", "amount_gbp_m": 40.0}
+  ],
+  "police_support": [
+    {"authority": "South Yorkshire Mayoral Combined Authority", "amount_gbp_m": 17.0, "year": "2024-25"}
+  ]
+}

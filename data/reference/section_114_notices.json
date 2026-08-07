@@ -1,0 +1,23 @@
+{
+  "_comment": "Section 114 notices issued by English local authorities. Source: Wikipedia 'Section 114 notice' page, cross-check against Institute for Government (https://www.instituteforgovernment.org.uk/explainer/local-authority-section-114-notices) and primary council/Commons Library sources BEFORE this is asserted on a public page — not independently verified against primary sources yet.",
+  "_relevance_note": "None of these are Greater Manchester or Gloucestershire authorities. That's a real finding, not a gap: no S114 notice in our v1 scope means the risk score has to earn its keep on leading indicators (reserves depletion, exceptional financial support) rather than just reproducing a known bankruptcy list.",
+  "notices": [
+    {"authority": "Brent LBC", "date": "1988-12-06"},
+    {"authority": "Lambeth LBC", "date": "1989-07-03"},
+    {"authority": "Camden LBC", "date": "1992-11-11"},
+    {"authority": "Hillingdon LBC", "date": "2000-07-05"},
+    {"authority": "Hackney LBC", "date": "2000-10-17"},
+    {"authority": "Milton Keynes Council", "date": "2002-11-01", "date_precision": "month"},
+    {"authority": "Northamptonshire CC", "date": "2018-02-02", "notice_number": 1},
+    {"authority": "Northamptonshire CC", "date": "2018-07-24", "notice_number": 2},
+    {"authority": "Croydon LBC", "date": "2020-11-11", "notice_number": 1},
+    {"authority": "Croydon LBC", "date": "2020-12-02", "notice_number": 2},
+    {"authority": "Slough BC", "date": "2021-07-02"},
+    {"authority": "Nottingham City Council", "date": "2021-12-15", "notice_number": 1},
+    {"authority": "Croydon LBC", "date": "2022-11-22", "notice_number": 3},
+    {"authority": "Thurrock Council", "date": "2022-12-19"},
+    {"authority": "Woking BC", "date": "2023-06-07"},
+    {"authority": "Birmingham City Council", "date": "2023-09-05"},
+    {"authority": "Nottingham City Council", "date": "2023-11-29", "notice_number": 2}
+  ]
+}
