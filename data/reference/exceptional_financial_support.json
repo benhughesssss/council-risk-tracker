@@ -1,43 +1,32 @@
 {
-  "_comment": "Exceptional Financial Support (capitalisation directions) 2025-26, from https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2025-26 — cross-check figures against the primary gov.uk table/PDFs before publishing, this was extracted via automated page-fetch, not hand-verified line by line yet.",
-  "_relevance_note": "Trafford (Greater Manchester) is on this list — the only GM or Gloucestershire authority present. That's the headline candidate finding for v1: is Trafford's reserves trajectory showing this coming before the EFS award, and how does it compare to the other 9 GM boroughs and 7 Gloucestershire authorities who aren't on this list?",
-  "year": "2025-26",
-  "source_url": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2025-26",
-  "awards": [
-    {"authority": "Barnet", "amount_gbp_m": 55.7},
-    {"authority": "Birmingham", "amount_gbp_m": 180.0, "prior_year_revised_gbp_m": 490.0},
-    {"authority": "Bradford", "amount_gbp_m": 127.1},
-    {"authority": "Cheshire East", "amount_gbp_m": 25.3, "prior_year_revised_gbp_m": 17.6},
-    {"authority": "Croydon", "amount_gbp_m": 110.3, "note": "revised, includes prior year adjustments"},
-    {"authority": "Cumberland", "amount_gbp_m": 23.439},
-    {"authority": "Eastbourne", "amount_gbp_m": 2.0},
-    {"authority": "Enfield", "amount_gbp_m": 10.0, "prior_year_gbp_m": 20.0},
-    {"authority": "Halton", "amount_gbp_m": 32.0, "prior_year_gbp_m": 10.0},
-    {"authority": "Haringey", "amount_gbp_m": 37.0, "prior_year_gbp_m": 10.0},
-    {"authority": "Havering", "amount_gbp_m": 88.0},
-    {"authority": "Medway", "amount_gbp_m": 28.469, "note": "revised"},
-    {"authority": "Newham", "amount_gbp_m": 51.2, "prior_year_gbp_m": 15.969},
-    {"authority": "Nottingham", "amount_gbp_m": 25.0},
-    {"authority": "Shropshire", "amount_gbp_m": 26.9, "note": "2024-25"},
-    {"authority": "Slough", "amount_gbp_m": 15.709},
-    {"authority": "Solihull", "amount_gbp_m": 32.658, "prior_year_gbp_m": 15.615},
-    {"authority": "Somerset", "amount_gbp_m": 45.118, "note": "revised"},
-    {"authority": "Southampton", "amount_gbp_m": 89.9},
-    {"authority": "Stoke-on-Trent", "amount_gbp_m": 16.8},
-    {"authority": "Swindon", "amount_gbp_m": 14.7},
-    {"authority": "Thurrock", "amount_gbp_m": 62.11, "note": "revised"},
-    {"authority": "Trafford", "amount_gbp_m": 9.6, "note": "Greater Manchester — in v1 scope"},
-    {"authority": "West Berkshire", "amount_gbp_m": 20.0, "prior_year_gbp_m": 13.0},
-    {"authority": "Windsor & Maidenhead", "amount_gbp_m": 41.0, "prior_year_gbp_m": 62.0},
-    {"authority": "Wirral", "amount_gbp_m": 7.5, "prior_year_gbp_m": 18.641},
-    {"authority": "Woking", "amount_gbp_m": 74.6, "prior_year_revised_gbp_m": 93.6},
-    {"authority": "Worcestershire", "amount_gbp_m": 33.6},
-    {"authority": "Worthing", "amount_gbp_m": 4.75, "note": "revised"}
+  "_comment": "Exceptional Financial Support (capitalisation direction) awards, ALL years, cross-checked 2026-08-07 directly against each year's dedicated gov.uk guidance page (not just the 2025-26 page's own historical summary, which turned out incomplete) plus a news report for Gloucester's award breakdown. Source URLs per year below.",
+  "_relevance_note": "Two of the 17 GM/Gloucestershire authorities have needed EFS: Trafford (2025-26 AND 2026-27 — two consecutive years, amount increasing) and Gloucester (2026-27 only, £9.05m — missed entirely by the first pass of this research, which only checked the 2025-26 list). Manchester still doesn't appear in any year despite having thinner reserves than either. No other GM or Gloucestershire authority appears in any year 2022-23 to 2026-27.",
+  "source_urls": {
+    "2022-23": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2022-23",
+    "2023-24": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2023-24",
+    "2024-25": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2024-25",
+    "2025-26": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2025-26",
+    "2026-27": "https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2026-27"
+  },
+  "gm_gloucestershire_awards": [
+    {
+      "authority": "Trafford",
+      "year": "2025-26",
+      "amount_gbp_m": 9.6,
+      "note": "support agreed in-principle"
+    },
+    {
+      "authority": "Trafford",
+      "year": "2026-27",
+      "amount_gbp_m": 12.65,
+      "note": "support agreed in-principle; second consecutive year"
+    },
+    {
+      "authority": "Gloucester",
+      "year": "2026-27",
+      "amount_gbp_m": 9.05,
+      "note": "support agreed in-principle. News reporting (soglos.com, 25 Feb 2026) breaks the wider £15.5m package down as £9.05m primary allocation + £3.89m covering 2024-25 + £2.56m covering 2025-26 — only the £9.05m 2026-27 figure appears on gov.uk's own table, the rest is not yet independently confirmed against a primary document."
+    }
   ],
-  "hra_support": [
-    {"authority": "Lambeth", "amount_gbp_m": 40.0}
-  ],
-  "police_support": [
-    {"authority": "South Yorkshire Mayoral Combined Authority", "amount_gbp_m": 17.0, "year": "2024-25"}
-  ]
+  "_full_lists_not_reproduced": "This file only carries GM/Gloucestershire-relevant rows to keep it small — full national EFS lists run to ~30 authorities per year and are the primary source's job to maintain, not a copy pasted in here to go stale. If the scope ever expands beyond GM/Gloucestershire, re-fetch the source URLs above rather than trust this file for other authorities."
 }

@@ -57,9 +57,15 @@ def load_authorities() -> list[tuple[str, str, str]]:
     return out
 
 
-def load_efs() -> dict[str, dict]:
+def load_efs() -> dict[str, list[dict]]:
+    """Returns authority -> list of EFS awards across all years (an
+    authority can appear more than once — Trafford needed EFS in both
+    2025-26 and 2026-27)."""
     ref = json.loads((REF_DIR / "exceptional_financial_support.json").read_text())
-    return {row["authority"]: row for row in ref["awards"]}
+    by_authority: dict[str, list[dict]] = {}
+    for row in ref["gm_gloucestershire_awards"]:
+        by_authority.setdefault(row["authority"], []).append(row)
+    return by_authority
 
 
 def load_s114() -> dict[str, list[dict]]:
@@ -77,7 +83,7 @@ def year_label(year_ending: int) -> str:
 
 
 def band_risk(latest_pct: float | None, mean_pct: float | None,
-              on_efs: bool, ever_s114: bool) -> str:
+              efs_awards: list[dict], ever_s114: bool) -> str:
     """Transparent rule-based banding on the *multi-year average* reserves
     ratio rather than a single year, since Manchester vs Trafford shows a
     single latest-year reading can be misleadingly thin or fat for
@@ -86,8 +92,9 @@ def band_risk(latest_pct: float | None, mean_pct: float | None,
     treating this as validated."""
     if ever_s114:
         return "High (S114 notice issued)"
-    if on_efs:
-        return "High (exceptional financial support 2025-26)"
+    if efs_awards:
+        years = ", ".join(a["year"] for a in efs_awards)
+        return f"High (exceptional financial support: {years})"
     if mean_pct is None:
         return "Unknown (data missing)"
     # Sudden latest-year collapse overrides a comfortable historical
@@ -137,7 +144,7 @@ def parse(csv_path: pathlib.Path) -> list[dict]:
         max_pct = round(max(pct_values), 1) if pct_values else None
 
         short_name = name.replace(" MBC", "").replace(" CC", "").replace(" UA", "")
-        efs_row = efs.get(name) or efs.get(short_name)
+        efs_awards = efs.get(name) or efs.get(short_name) or []
         s114_rows = s114.get(name) or s114.get(short_name) or []
 
         results.append({
@@ -150,9 +157,9 @@ def parse(csv_path: pathlib.Path) -> list[dict]:
             "reserves_pct_8yr_min": min_pct,
             "reserves_pct_8yr_max": max_pct,
             "reserves_pct_latest": latest_pct,
-            "exceptional_financial_support_2025_26": efs_row,
+            "exceptional_financial_support": efs_awards,
             "section_114_notices": s114_rows,
-            "risk_band": band_risk(latest_pct, mean_pct, on_efs=efs_row is not None, ever_s114=len(s114_rows) > 0),
+            "risk_band": band_risk(latest_pct, mean_pct, efs_awards=efs_awards, ever_s114=len(s114_rows) > 0),
         })
     return results
 
@@ -175,14 +182,16 @@ def main():
             "Unallocated (general fund) reserves as % of net revenue expenditure, "
             "tracked over 8 years per authority. Risk band uses the 8-year AVERAGE "
             "ratio, not just the latest year, because a single year's reading can "
-            "mislead (Manchester's reserves ratio is thinner than Trafford's in "
-            "most years, yet only Trafford needed exceptional financial support in "
-            "2025-26 — so 'thin reserves' alone doesn't predict a bailout, it's "
-            "necessary context, not sufficient). Overridden to 'High' by an actual "
-            "S114 notice or 2025-26 EFS award. NOT a validated predictive model — "
-            "a screening tool, see README for caveats including small-district "
-            "denominator volatility (Cotswold's ratio swings 5%-88% across the "
-            "period purely because its net revenue expenditure base is small)."
+            "mislead — Manchester's reserves ratio has run thinner than Trafford's "
+            "for most of the period, and thinner than Gloucester's average too, yet "
+            "Manchester has never needed exceptional financial support (EFS) while "
+            "both Trafford (2025-26 AND 2026-27) and Gloucester (2026-27) have. "
+            "'Thin reserves' is necessary context for distress, not a sufficient "
+            "predictor of it. Overridden to 'High' by an actual S114 notice or any "
+            "EFS award, any year. NOT a validated predictive model — a screening "
+            "tool, see README for caveats including small-district denominator "
+            "volatility (Cotswold's ratio swings 5%-88% across the period purely "
+            "because its net revenue expenditure base is small)."
         ),
         "authorities": results,
     }

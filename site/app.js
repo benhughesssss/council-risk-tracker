@@ -62,13 +62,13 @@ async function main() {
 }
 
 function renderKPIs(authorities) {
-  const onEFS = authorities.filter(a => a.exceptional_financial_support_2025_26);
+  const onEFS = authorities.filter(a => a.exceptional_financial_support.length > 0);
   const everS114 = authorities.filter(a => a.section_114_notices.length > 0);
   const thinnest = [...authorities].sort((a, b) => a.reserves_pct_latest - b.reserves_pct_latest)[0];
 
   const tiles = [
     { label: "Authorities tracked", value: String(authorities.length), small: "GM + Gloucestershire" },
-    { label: "On 2025–26 EFS list", value: String(onEFS.length), small: onEFS.map(a => a.authority).join(", ") || "none" },
+    { label: "Ever needed EFS (2022–27)", value: String(onEFS.length), small: onEFS.map(a => a.authority).join(", ") || "none" },
     { label: "Section 114 notices, ever", value: String(everS114.length), small: everS114.length ? everS114.map(a => a.authority).join(", ") : "none in scope" },
     { label: "Thinnest 2024–25 reserves", value: fmtPct(thinnest.reserves_pct_latest), small: thinnest.authority },
   ];
@@ -186,10 +186,10 @@ function renderLineChart(authorities) {
     svg.appendChild(endLabel);
   }
 
-  // Trafford's 2025-26 EFS award landed just after the last data point
-  // shown here (2024-25 outturn) — mark it with a short dashed tick
-  // rising from Trafford's final point, since the award year itself
-  // isn't in this dataset yet.
+  // Trafford's EFS awards (2025-26 AND 2026-27 — two consecutive years)
+  // landed just after the last data point shown here (2024-25 outturn)
+  // — mark it with a short dashed tick, since those award years aren't
+  // in this reserves dataset yet.
   {
     const traffordLast = seriesDefs[1].data[seriesDefs[1].data.length - 1];
     const ex = x(seriesDefs[1].data.length - 1);
@@ -201,7 +201,7 @@ function renderLineChart(authorities) {
     const efsLabel = svgEl("text", {
       x: ex, y: topY - 6, "text-anchor": "middle", fill: "var(--text-secondary)", "font-size": 11,
     });
-    efsLabel.textContent = "EFS award →";
+    efsLabel.textContent = "EFS ×2 →";
     svg.appendChild(efsLabel);
   }
 
@@ -291,7 +291,9 @@ function renderTable(authorities) {
     for (const a of sorted) {
       const band = classifyBand(a.risk_band);
       const flags = [];
-      if (a.exceptional_financial_support_2025_26) flags.push(`EFS 2025–26 (£${a.exceptional_financial_support_2025_26.amount_gbp_m}m)`);
+      for (const award of a.exceptional_financial_support) {
+        flags.push(`EFS ${award.year} (£${award.amount_gbp_m}m)`);
+      }
       if (a.section_114_notices.length) flags.push(`S114 ×${a.section_114_notices.length}`);
 
       const tr = el("tr");

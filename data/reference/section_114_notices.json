@@ -1,5 +1,5 @@
 {
-  "_comment": "Section 114 notices issued by English local authorities. Source: Wikipedia 'Section 114 notice' page, cross-check against Institute for Government (https://www.instituteforgovernment.org.uk/explainer/local-authority-section-114-notices) and primary council/Commons Library sources BEFORE this is asserted on a public page — not independently verified against primary sources yet.",
+  "_comment": "Section 114 notices issued by English local authorities. Source: Wikipedia 'Section 114 notice' page. The dates/list below for OUT-OF-SCOPE authorities are still not hand-verified against primary sources line-by-line — treat those as indicative. What IS verified (2026-08-07, via targeted web search against each of the 17 GM/Gloucestershire authority names individually, not just checking this list): none of the 17 in scope have ever issued a Section 114 notice. That specific claim is the one this project actually relies on.",
   "_relevance_note": "None of these are Greater Manchester or Gloucestershire authorities. That's a real finding, not a gap: no S114 notice in our v1 scope means the risk score has to earn its keep on leading indicators (reserves depletion, exceptional financial support) rather than just reproducing a known bankruptcy list.",
   "notices": [
     {"authority": "Brent LBC", "date": "1988-12-06"},

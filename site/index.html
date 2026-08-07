@@ -326,7 +326,7 @@
   <header class="site-header">
     <div>
       <h1>Council Financial Risk Tracker</h1>
-      <p class="sub">Unallocated reserves vs net spending, 2017–18 to 2024–25, for Greater Manchester's 10 boroughs and Gloucestershire's 7 authorities. Built from public MHCLG data — <a href="https://github.com" id="repo-link" target="_blank" rel="noopener">source &amp; methodology</a>.</p>
+      <p class="sub">Unallocated reserves vs net spending, 2017–18 to 2024–25, for Greater Manchester's 10 boroughs and Gloucestershire's 7 authorities. Built from public MHCLG data — <a href="https://github.com/benhughesssss/council-risk-tracker" id="repo-link" target="_blank" rel="noopener">source &amp; methodology</a>.</p>
     </div>
     <button id="theme-toggle" type="button" aria-label="Toggle dark mode">◐ Theme</button>
   </header>
@@ -338,8 +338,8 @@
     <h2>Thin reserves don't reliably predict a bailout</h2>
     <p class="section-sub">Latest-year (2024–25) unallocated reserves as a share of net revenue expenditure, all 17 authorities, thinnest first. Colour marks the risk band.</p>
     <div class="callout">
-      <p><strong>Trafford</strong> is the only Greater Manchester or Gloucestershire authority that needed a 2025–26 Exceptional Financial Support award (a capitalisation direction, £9.6m) — but it isn't the authority with the thinnest reserves. <strong>Manchester's</strong> unallocated reserves have run thinner than Trafford's for most of the last 8 years, and its 2024–25 reading (1.3% of net spend) is the second-lowest of any authority in this scope — behind only Gloucester City's one-year collapse to 0.7% — yet neither Manchester nor Gloucester has needed one.</p>
-      <p>Read plainly: a thin reserves ratio is necessary context for financial stress, not a sufficient predictor of it. Two authorities are currently thinner than the one that actually needed help. Whatever is letting Manchester and Gloucester run leaner than Trafford without triggering the same intervention — commercial income, borrowing headroom, MRP policy — isn't visible in this dataset. That's the open question this project doesn't yet answer.</p>
+      <p>Two of the 17 authorities in this scope have needed Exceptional Financial Support (EFS) — government permission to plug a budget gap by borrowing or selling assets. <strong>Trafford</strong> needed it in <strong>two consecutive years</strong> (2025–26, £9.6m; 2026–27, £12.65m). <strong>Gloucester</strong> needed it too, in 2026–27 (£9.05m) — a genuine validation of this project's reserves-based screening, since Gloucester's collapse to 0.7% in the 2024–25 data had already flagged it here before that award became public.</p>
+      <p><strong>Manchester hasn't needed EFS in any year</strong> — yet its reserves have run thinner than Trafford's for most of the last 8 years, and its 2024–25 reading (1.3%) is still lower than Trafford's ever was. Thin reserves are necessary context for financial distress, not a sufficient predictor of it: Manchester is thinner than one bailed-out authority and comparable to another, without triggering the same intervention. Whatever is letting Manchester run this lean — commercial income, borrowing headroom, MRP policy — isn't visible in this dataset. That's the open question this project doesn't yet answer.</p>
     </div>
     <figure class="chart-card">
       <div class="legend-row" id="bar-legend"></div>
@@ -350,10 +350,10 @@
 
   <section id="comparison">
     <h2>Manchester vs Trafford, 2017–2025</h2>
-    <p class="section-sub">The two lowest 8-year averages in this scope, tracked year by year. Trafford's EFS award landed at the very end of a flat run; Manchester's line keeps falling.</p>
+    <p class="section-sub">The two lowest 8-year averages in this scope, tracked year by year. Trafford's two EFS awards landed at the very end of a flat run; Manchester's line keeps falling without one.</p>
     <figure class="chart-card">
       <div class="linechart-wrap" id="line-chart"></div>
-      <figcaption>Unallocated reserves as % of net revenue expenditure. Dashed marker: Trafford's 2025–26 EFS award (announced after the 2024–25 outturn shown here).</figcaption>
+      <figcaption>Unallocated reserves as % of net revenue expenditure. Dashed marker: Trafford's EFS awards for 2025–26 and 2026–27 (both announced after the 2024–25 outturn shown here).</figcaption>
     </figure>
   </section>
 
@@ -383,7 +383,8 @@
       <summary>Methodology &amp; caveats</summary>
       <ul>
         <li><strong>What's measured:</strong> unallocated (general fund) reserves at year-end, as a percentage of net revenue expenditure that year. Unallocated reserves are what a council can actually spend without breaching earmarking — total reserves (including schools, public health, earmarked funds) would overstate what's really available.</li>
-        <li><strong>Risk band is a transparent rule, not a fitted model:</strong> <em>High</em> = an actual Section 114 notice or 2025–26 Exceptional Financial Support award; <em>Elevated</em> = latest year's ratio has collapsed below 3% regardless of history, or the 8-year average itself is under 5%; <em>Watch</em> = 8-year average 5–8%, or the latest year is under half the 8-year average; <em>Lower risk</em> = none of the above — still just a reserves-based signal, not a clean bill of health.</li>
+        <li><strong>Risk band is a transparent rule, not a fitted model:</strong> <em>High</em> = an actual Section 114 notice or an Exceptional Financial Support award in any year 2022–23 to 2026–27; <em>Elevated</em> = latest year's ratio has collapsed below 3% regardless of history, or the 8-year average itself is under 5%; <em>Watch</em> = 8-year average 5–8%, or the latest year is under half the 8-year average; <em>Lower risk</em> = none of the above — still just a reserves-based signal, not a clean bill of health.</li>
+        <li><strong>The EFS and Section 114 reference data were revised on 2026-08-07</strong> after a full cross-check against every year's primary gov.uk guidance page (2022–23 through 2026–27) plus targeted searches for each of the 17 authorities individually — the first-pass version of this project had only checked the 2025–26 EFS list and missed Gloucester's 2026–27 award entirely. Worth remembering when trusting any single-source pull like that first pass was.</li>
         <li><strong>The thresholds are a first-pass judgement call</strong>, not statistically validated. They were adjusted once already: an earlier version banded Gloucester as "lower risk" on its comfortable 8-year average alone, missing that its latest year had collapsed to 0.7%.</li>
         <li><strong>Small district councils are noisier.</strong> Cotswold's ratio swings from 5% to 88% across the 8 years, purely because its net revenue expenditure denominator is small — don't read district-vs-borough gaps as apples-to-apples without accounting for this.</li>
         <li><strong>Two-tier vs unitary:</strong> Greater Manchester's 10 boroughs are unitary authorities running their own social care and highways budgets. Gloucestershire is two-tier — the county council runs those services, the 6 districts don't — so reserves pressure shows up differently between the two groups.</li>
@@ -394,7 +395,8 @@
   </section>
 
   <footer>
-    <p>Data: <a href="https://www.gov.uk/government/statistics/local-authority-revenue-expenditure-and-financing-england-revenue-outturn-multi-year-data-set" target="_blank" rel="noopener">MHCLG Revenue Outturn multi-year dataset</a> · <a href="https://www.gov.uk/guidance/exceptional-financial-support-for-local-authorities-for-2025-26" target="_blank" rel="noopener">Exceptional Financial Support 2025–26</a>. Last refreshed: <span id="footer-date">—</span>. Independent analysis, not affiliated with MHCLG, GMCA, or any council.</p>
+    <p>Data: <a href="https://www.gov.uk/government/statistics/local-authority-revenue-expenditure-and-financing-england-revenue-outturn-multi-year-data-set" target="_blank" rel="noopener">MHCLG Revenue Outturn multi-year dataset</a> · <a href="https://www.gov.uk/government/collections/exceptional-financial-support-for-local-authorities" target="_blank" rel="noopener">Exceptional Financial Support, all years</a>. Last refreshed: <span id="footer-date">—</span>. Independent analysis, not affiliated with MHCLG, GMCA, or any council.</p>
+    <p>Built by <a href="https://github.com/benhughesssss" target="_blank" rel="noopener">benhughesssss</a> · <a href="https://github.com/benhughesssss/council-risk-tracker" target="_blank" rel="noopener">source on GitHub</a></p>
   </footer>
 
 </div>
