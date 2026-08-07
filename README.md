@@ -1,8 +1,13 @@
 # Council Financial Risk Tracker (v1: Greater Manchester + Gloucestershire)
 
+**Live:** https://benhughesssss.github.io/council-risk-tracker/
+
 Ongoing, publicly-sourced tracker of English local authority financial
 stress, starting with the 10 Greater Manchester boroughs and the 7
-Gloucestershire authorities (county + 6 districts).
+Gloucestershire authorities (county + 6 districts). Rebuilds and
+redeploys automatically — see `.github/workflows/deploy.yml` — on every
+push to `main` that touches the pipeline, reference data, or site, plus
+a monthly schedule.
 
 ## Why this pair of areas
 
@@ -82,10 +87,15 @@ authority, per year 2017-18 to 2024-25:
       **unverified against primary sources**, see caveat above)
 - [x] Parser + risk-scoring pipeline written and run for real
       (`pipeline/parse_rs_data.py` → `data/processed/gm_gloucestershire_risk_2017-2025.json`)
-- [ ] Frontend (static site reading `data/processed/*.json`)
-- [ ] Git repo + GitHub Pages + Actions refresh workflow
+- [x] Frontend built and visually QA'd (`site/`) — caught and fixed a
+      factual error in the headline copy and a chart annotation that
+      was promised in a caption but not actually drawn
+- [x] Git repo, GitHub Pages, and the Actions refresh workflow are live
+      at https://benhughesssss.github.io/council-risk-tracker/
 - [ ] Investigate why Manchester's reserves are thinner than Trafford's
       without needing EFS — likely next analytical step, not yet started
+- [ ] Manually verify the EFS and Section 114 reference data against
+      primary sources (still flagged as unverified, see caveat above)
 
 ## Running it
 
